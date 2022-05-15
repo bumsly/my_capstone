@@ -14,7 +14,7 @@ const NavButton = styled.button`
 function Nav() {
   return (
     <div
-      class="Nav_body"
+      className="Nav_body"
       style={{
         position: "fixed",
         backgroundColor: "#fff",
@@ -44,7 +44,7 @@ function Nav() {
         </Link>
         <div
           style={{
-            width: "50%",
+            width: "700px",
             display: "flex",
             justifyContent: "space-between",
           }}

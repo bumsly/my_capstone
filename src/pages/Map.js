@@ -1,7 +1,7 @@
 function Map() {
   return (
     <div style={{ width: "100%", height: "100vh" }}>
-      <div class="space" style={{ width: "100%", height: "100px" }}></div>
+      <div className="space" style={{ width: "100%", height: "100px" }}></div>
       <canvas
         style={{
           width: "1373",

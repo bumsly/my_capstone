@@ -1,4 +1,30 @@
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import FacebookLoginButton from "../component/FacebookLoginButton";
+
 function Login() {
+  const [inputId, setInputId] = useState("");
+  const [inputPw, setInputPw] = useState("");
+
+  const handleInputId = (e) => {
+    setInputId(e.target.value);
+  };
+
+  const handleInputPw = (e) => {
+    setInputPw(e.target.value);
+  };
+
+  const onClickLogin = () => {
+    console.log("click login");
+  };
+
+  useEffect(() => {
+    axios
+      .get("/user_inofrm/login")
+      .then((res) => console.log(res))
+      .catch();
+  }, []);
+
   return (
     <div
       style={{
@@ -20,20 +46,37 @@ function Login() {
         <span>Login</span>
         <ul>
           <li>
-            <input placeholder="ID"></input>
+            <label htmlFor="input_id">ID : </label>
+            <input
+              type="text"
+              name="input_id"
+              value={inputId}
+              onChange={handleInputId}
+              placeholder="ID"
+            ></input>
           </li>
           <li>
-            <input placeholder="PW"></input>
+            <label htmlFor="input_pw">PW : </label>
+            <input
+              type="text"
+              name="input_pw"
+              value={inputPw}
+              onChange={handleInputPw}
+              placeholder="PW"
+            ></input>
           </li>
           <li>
-            <button>확인</button>
+            <button type="button" onClick={onClickLogin}>
+              확인
+            </button>
           </li>
           <li>
-            <span>아이디 찾기</span>
-            <span>비밀번호 찾기</span>
+            <button>아이디 찾기</button>
+            <button>비밀번호 찾기</button>
           </li>
         </ul>
-        <div>KLIP으로 로그인</div>
+        <p>KLIP으로 로그인</p>
+        <FacebookLoginButton />
       </div>
     </div>
   );
